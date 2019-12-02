@@ -1,0 +1,2 @@
+simulator lang=spice
+.include "$PATH_TO_FREEPDK45/ncsu_basekit/models/hspice/hspice_nom.include"

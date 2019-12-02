@@ -1,0 +1,40 @@
+devices
+config_devices -vdd vdd -gnd gnd
+devices
+library_name
+set_library_name my_lib
+library_name
+print_library
+print_schematics
+print_cells
+add_schematics AND2_X1.spi
+add_cells -n AND2_X1 -i A1 A2 -o ZN -f ZN=A1*A2
+print_library
+print_schematics
+print_cells
+add_slope slope0 0.005 0.010 0.020 0.050 0.080
+print_slopes
+add_load load0 0.0005 0.001 0.030 0.080
+print_loads
+add_model_table AND2_X1 slope0 load0
+set_voltage 1
+set_temp 25
+set_process typ
+set_vdd vdd vdds
+set_gnd gnd gnds
+set_models freepdk45.lib
+set_vh 0.9
+set_vl 0.1
+set_vhtl 0.5
+set_vlth 0.5
+set_start_time 0.5
+set_sim_time 2000
+set_sim_step 0.01
+set_load_unit pF
+set_time_unit ns
+set_resistance_unit Mo
+set_max_tran 0.08
+print_config
+characterize_library
+export my_lib.lib
+exit
